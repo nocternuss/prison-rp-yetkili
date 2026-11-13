@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yetkili Ceza Yönetmeliği | Prison RP Türkiye</title>
+  <meta name="description" content="Yetkili kadrosu için Sözel İhlaller, Rol Yapma, Yetkili İlişkileri, Ses, Flört RP, Zararlı Eylemler ve Ticket Uygulama Protokolleri.">
+  <meta name="theme-color" content="#CC0000">
+
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Prison RP Türkiye">
+  <meta property="og:title" content="Yetkili Ceza Yönetmeliği | Prison RP Türkiye">
+  <meta property="og:description" content="Yetkili kadrosu için Sözel İhlaller, Rol Yapma, Yetkili İlişkileri, Ses, Flört RP, Zararlı Eylemler ve Ticket Uygulama Protokolleri.">
+  <meta property="og:url" content="https://nocternuss.github.io/prison-rp-yetkili/">
+  <meta property="og:image" content="https://nocternuss.github.io/prison-rp-yetkili/assets/banner-yetkili.png?v=1">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yetkili Ceza Yönetmeliği | Prison RP Türkiye">
+  <meta name="twitter:description" content="Yetkili kadrosu için Sözel İhlaller, Rol Yapma, Yetkili İlişkileri, Ses, Flört RP, Zararlı Eylemler ve Ticket Uygulama Protokolleri.">
+  <meta name="twitter:image" content="https://nocternuss.github.io/prison-rp-yetkili/assets/banner-yetkili.png?v=1">
+
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="./assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg-page: #0c0d10;
+      --bg-surface: #13151a;
+      --bg-card: #171920;
+      --bg-card-hover: #1c1f28;
+      --bg-header: rgba(12, 13, 16, 0.9);
+      --border-hairline: #262933;
+      --border-strong: #343846;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #cc0000;
+      --accent-bright: #ef4444;
+      --accent-soft: rgba(204, 0, 0, 0.16);
+      --accent-border: rgba(239, 68, 68, 0.35);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    body.drawer-locked { overflow: hidden; }
+    .search-hidden { display: none !important; }
+
+    /* TOP BAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 60px;
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .topbar-inner {
+      max-width: 1320px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .menu-btn:hover { border-color: var(--accent-bright); }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand-country { display: none; }
+    @media (min-width: 520px) {
+      .brand-link { font-size: 0.95rem; gap: 9px; }
+      .brand-country { display: inline; }
+    }
+    .brand-link svg {
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .nav-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: 9px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    @media (min-width: 640px) { .nav-tab { padding: 6px 11px; font-size: 0.8125rem; } }
+    .nav-tab:hover { color: var(--text-primary); }
+    .nav-tab.is-active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .nav-tab svg { display: none; }
+    @media (min-width: 640px) { .nav-tab svg { display: inline-block; } }
+
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    @media (min-width: 520px) { .pdf-btn { padding: 7px 11px; } }
+    .pdf-btn:hover {
+      border-color: var(--accent-bright);
+      background: var(--accent-soft);
+    }
+    .pdf-label { display: none; }
+    @media (min-width: 720px) { .pdf-label { display: inline; } }
+
+    /* SHELL GRID */
+    .shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 16px 56px 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .topbar-inner { padding: 0 24px; }
+      .menu-btn { display: none; }
+      .shell {
+        padding: 28px 24px 72px 24px;
+        grid-template-columns: 288px minmax(0, 1fr);
+        gap: 36px;
+      }
+    }
+
+    /* SIDEBAR & MOBILE DRAWER */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: 55;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: min(310px, 86vw);
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-hairline);
+      z-index: 60;
+      padding: 16px;
+      overflow-y: auto;
+      transform: translateX(-105%);
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar.is-open { transform: translateX(0); }
+    @media (min-width: 960px) {
+      .sidebar {
+        position: sticky;
+        top: 84px;
+        bottom: auto;
+        width: auto;
+        max-height: calc(100vh - 104px);
+        transform: none;
+        background: transparent;
+        border-right: none;
+        padding: 0;
+        z-index: 10;
+      }
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    @media (min-width: 960px) { .drawer-head { display: none; } }
+    .drawer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .drawer-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .side-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-left: 2px solid transparent;
+      transition: background-color 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+    }
+    .toc-link:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+    .toc-link.is-active {
+      background: var(--accent-soft);
+      color: #fca5a5;
+      border-left-color: var(--accent-bright);
+      font-weight: 600;
+    }
+    .toc-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-muted);
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    .toc-link.is-active .toc-tag {
+      border-color: var(--accent-border);
+      color: #fecaca;
+    }
+    .toc-text {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .side-cross-card {
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .side-cross-card p {
+      margin: 0;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .side-cross-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: #f87171;
+    }
+    .side-cross-link:hover { text-decoration: underline; }
+
+    /* MAIN READING CANVAS */
+    .main-col {
+      min-width: 0;
+      max-width: 880px;
+    }
+
+    .doc-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-top: 4px solid var(--accent-bright);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (min-width: 640px) { .doc-hero { padding: 26px 28px; } }
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+    .hero-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border-strong);
+      flex-shrink: 0;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fca5a5;
+      margin-bottom: 6px;
+    }
+    .doc-hero h1 {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+    .hero-lead {
+      margin: 12px 0 16px 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-chip {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--bg-page);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-secondary);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .hero-chip:hover {
+      border-color: var(--accent-bright);
+      color: var(--text-primary);
+    }
+
+    /* SEARCH BAR */
+    .search-bar-wrap {
+      margin-bottom: 24px;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 8px 12px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-box:focus-within {
+      border-color: var(--accent-bright);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .search-icon {
+      color: var(--text-muted);
+      display: inline-flex;
+      flex-shrink: 0;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.925rem;
+      outline: none;
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-status {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .search-clear {
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .search-kbd {
+      display: none;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border: 1px solid var(--border-hairline);
+      padding: 2px 7px;
+      border-radius: 5px;
+    }
+    @media (min-width: 960px) { .search-kbd { display: inline-block; } }
+
+    .search-empty {
+      background: var(--bg-card);
+      border: 1px dashed var(--border-strong);
+      border-radius: 12px;
+      padding: 36px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .search-empty p {
+      margin: 0 0 12px 0;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .reset-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--accent-border);
+      background: var(--accent-soft);
+      color: #fecaca;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      scroll-margin-top: 76px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .doc-section:last-of-type { border-bottom: none; }
+    .sec-head {
+      margin-bottom: 18px;
+    }
+    .sec-eyebrow {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f87171;
+      margin-bottom: 4px;
+    }
+    .sec-head h2 {
+      margin: 0 0 6px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+    .sec-desc {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* === RULES PORTAL CONTENT STYLES === */
+    .modern-card {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      font-size: 0.9375rem;
+      line-height: 1.62;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+    .modern-card strong { color: var(--text-primary); }
+    .modern-card ul { margin: 8px 0 0 18px; padding: 0; }
+    .modern-card ul li { margin-bottom: 7px; }
+    .modern-card ul li:last-child { margin-bottom: 0; }
+
+    .card-border-crimson { border-left: 4px solid #991b1b; background: #fffafa; }
+    .card-border-emerald { border-left: 4px solid #059669; background: #f0fdf4; color: #14532d; }
+    .card-border-blue { border-left: 4px solid #2563eb; background: #eff6ff; color: #1e3a8a; }
+    .card-border-amber { border-left: 4px solid #d97706; background: #fefce8; color: #713f12; }
+    .card-border-slate { border-left: 4px solid #475569; background: #f8fafc; color: #1e293b; }
+
+    .card-header-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: #0f172a;
+    }
+    .badge-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .tag-crimson { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .tag-emerald { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .tag-blue { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+    .tag-amber { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .tag-dark { background: #0f172a; color: #ffffff; }
+
+    .item-list { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
+    .list-row { display: block; font-size: 0.9375rem; line-height: 1.58; }
+    .bullet-dot { color: #991b1b; font-weight: 900; margin-right: 6px; }
+    .row-title { font-weight: 700; color: #0f172a; margin-right: 5px; }
+    .row-text { color: #334155; }
+    .red-pill {
+      color: #991b1b;
+      font-weight: 700;
+      background: #fee2e2;
+      padding: 1px 7px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid #fca5a5;
+      font-size: 0.85em;
+    }
+
+    .tools-grid, .roles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 12px 0 16px 0;
+    }
+    @media (min-width: 700px) {
+      .tools-grid, .roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .tool-card, .role-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tool-title, .role-box-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #0f172a;
+    }
+    .tool-desc, .role-text {
+      font-size: 0.875rem;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .role-name { font-family: 'Montserrat', sans-serif; font-size: 0.98rem; font-weight: 800; color: #0f172a; }
+    .role-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #991b1b;
+      background: #fee2e2;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #fca5a5;
+      white-space: nowrap;
+    }
+
+    /* RESPONSIVE TABLES */
+    .table-wrap {
+      margin: 14px 0 16px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+    .table-official {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .table-official th {
+      background: #0f172a;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-align: left;
+      padding: 11px 14px;
+    }
+    .table-official td {
+      padding: 10px 14px;
+      border-top: 1px solid #cbd5e1;
+      vertical-align: middle;
+      line-height: 1.5;
+    }
+    .row-amber { background: #fefce8; color: #713f12; font-weight: 500; }
+    .row-rose-light { background: #fff1f2; color: #881337; font-weight: 500; }
+    .row-rose-medium { background: #ffe4e6; color: #9f1239; font-weight: 600; }
+    .row-white { background: #ffffff; color: #1e293b; font-weight: 500; }
+
+    @media (max-width: 639px) {
+      .table-wrap { border: none; background: transparent; box-shadow: none; border-radius: 0; }
+      .table-official, .table-official tbody, .table-official tr, .table-official td {
+        display: block;
+        width: 100%;
+      }
+      .table-official thead { display: none; }
+      .table-official tr {
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      .table-official td {
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        padding: 9px 12px;
+      }
+      .table-official td:first-child { border-top: none; }
+      .table-official td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #64748b;
+        margin-bottom: 2px;
+      }
+    }
+
+    /* === STAFF PORTAL CONTENT STYLES === */
+    .sub-section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f87171;
+      background: rgba(204, 0, 0, 0.12);
+      border-left: 3px solid #cc0000;
+      padding: 7px 12px;
+      border-radius: 4px;
+      margin: 0 0 12px 0;
+    }
+    .sub-gap { margin-top: 24px; }
+    .cards-container { display: flex; flex-direction: column; gap: 12px; }
+    .rule-card {
+      background: #15171d;
+      border: 1px solid #262933;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .rule-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #ffffff;
+      line-height: 1.35;
+    }
+    .en-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-left: 4px;
+      display: inline-block;
+    }
+    .rule-desc {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin: 6px 0 10px 0;
+      line-height: 1.55;
+    }
+    .sanction-list { display: flex; flex-direction: column; gap: 6px; }
+    .sanction-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .bullet { color: #ef4444; font-weight: 900; margin-right: 4px; }
+    .sanction-label { font-weight: 700; color: #ffffff; }
+    .sanction-text { color: #e2e8f0; }
+    .sanction-tag {
+      color: #ff4d4d;
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-left: 4px;
+      display: inline-block;
+    }
+    .note-tag {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-left: 4px;
+    }
+
+    .directive-box, .protocol-box, .harmful-box, .notice-card {
+      background: #171920;
+      border: 1px solid #2a2e39;
+      border-left: 4px solid #cc0000;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+    .directive-header, .protocol-header, .harmful-header, .notice-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .directive-en, .protocol-en, .harmful-en, .notice-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    .directive-desc, .harmful-desc, .notice-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.58;
+    }
+    .directive-desc strong, .harmful-desc strong, .notice-desc strong, .protocol-text strong { color: #ffffff; }
+    .protocol-list { display: flex; flex-direction: column; gap: 8px; }
+    .protocol-item { font-size: 0.88rem; line-height: 1.55; color: #cbd5e1; }
+    .protocol-label { font-weight: 700; color: #ffffff; margin-right: 4px; }
+    .protocol-text { color: #cbd5e1; }
+
+    /* FOOTER & BACK TO TOP */
+    .site-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .site-footer a {
+      color: #f87171;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .site-footer a:hover { text-decoration: underline; }
+
+    .scroll-top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-md);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.15s ease;
+      z-index: 40;
+    }
+    .scroll-top-btn.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top-btn:hover { border-color: var(--accent-bright); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <button id="menu-toggle" class="menu-btn" type="button" aria-label="Bölüm menüsünü aç" aria-expanded="false" aria-controls="sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="./" class="brand-link" title="Yetkili Kadrosu Yaptırım Kitapçığı">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="28" height="19" role="img" aria-label="Türk Bayrağı"><defs><clipPath id="tr-flag-clip-12-28"><rect x="0" y="0" width="300" height="200" rx="12" ry="12"/></clipPath></defs><g clip-path="url(#tr-flag-clip-12-28)"><rect width="300" height="200" fill="#E30A17"/><circle cx="100" cy="100" r="50" fill="#FFFFFF"/><circle cx="112.5" cy="100" r="40" fill="#E30A17"/><polygon points="143.30,100.00 160.57,105.61 160.57,123.78 171.25,109.08 188.53,114.69 177.85,100.00 188.53,85.31 171.25,90.92 160.57,76.22 160.57,94.39" fill="#FFFFFF"/></g></svg>
+          <span>Prison RP<span class="brand-country"> Türkiye</span></span>
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="./downloads/staff.pdf" class="pdf-btn" download title="PDF olarak indir">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="pdf-label">PDF</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <div class="shell">
+    <aside id="sidebar" class="sidebar" aria-label="Bölüm Listesi">
+      <div class="drawer-head">
+        <span class="drawer-title">Bölümler</span>
+        <button id="drawer-close" class="drawer-close" type="button" aria-label="Menüyü kapat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div>
+        <div class="side-group-title">İçindekiler</div>
+        <nav class="toc-list">
+          <a class="toc-link is-active" href="#sozel"><span class="toc-tag">VERBAL</span><span class="toc-text">Sözel İhlaller</span></a>
+<a class="toc-link" href="#rol-yapma"><span class="toc-tag">ROLEPLAY</span><span class="toc-text">Rol Yapma</span></a>
+<a class="toc-link" href="#yetkili-iliskileri"><span class="toc-tag">INTERSTAFF</span><span class="toc-text">Yetkili İlişkileri</span></a>
+<a class="toc-link" href="#ses"><span class="toc-tag">SES / MIC</span><span class="toc-text">Ses Kuralları</span></a>
+<a class="toc-link" href="#flort-rp"><span class="toc-tag">FRP / ERP</span><span class="toc-text">Flört RP / 18+</span></a>
+<a class="toc-link" href="#zararli"><span class="toc-tag">HARMFUL</span><span class="toc-text">Zararlı Eylemler</span></a>
+<a class="toc-link" href="#diger-yaptirimlar"><span class="toc-tag">DİĞER</span><span class="toc-text">Diğer Yaptırımlar</span></a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main-col">
+      <section class="doc-hero">
+        <div class="hero-top">
+          <div class="hero-brand">
+            <img src="./assets/logo.png" alt="Prison RP Türkiye Logosu" class="hero-logo" width="56" height="56">
+            <div>
+              <div class="hero-eyebrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="36" height="24" role="img" aria-label="Türk Bayrağı"><defs><clipPath id="tr-flag-clip-14-36"><rect x="0" y="0" width="300" height="200" rx="14" ry="14"/></clipPath></defs><g clip-path="url(#tr-flag-clip-14-36)"><rect width="300" height="200" fill="#E30A17"/><circle cx="100" cy="100" r="50" fill="#FFFFFF"/><circle cx="112.5" cy="100" r="40" fill="#E30A17"/><polygon points="143.30,100.00 160.57,105.61 160.57,123.78 171.25,109.08 188.53,114.69 177.85,100.00 188.53,85.31 171.25,90.92 160.57,76.22 160.57,94.39" fill="#FFFFFF"/></g></svg><span>YETKİLİ REHBERİ</span></div>
+              <h1>Yetkili Ceza &amp; Yaptırım Yönetmeliği</h1>
+            </div>
+          </div>
+        </div>
+        <p class="hero-lead">Sözel, Rol Yapma, Interstaff, Ses, Flört RP ve Zararlı eylemler için kademeli yaptırım rehberi ve Ticket protokolleri.</p>
+        <div class="hero-chips">
+          <a class="hero-chip" href="#sozel">Sözel İhlaller</a><a class="hero-chip" href="#rol-yapma">Rol Yapma</a><a class="hero-chip" href="#yetkili-iliskileri">Yetkili İlişkileri</a><a class="hero-chip" href="#ses">Ses Kuralları</a><a class="hero-chip" href="#flort-rp">Flört RP / 18+</a><a class="hero-chip" href="#zararli">Zararlı Eylemler</a><a class="hero-chip" href="#diger-yaptirimlar">Diğer Yaptırımlar</a>
+        </div>
+      </section>
+
+      <div class="search-bar-wrap">
+        <div class="search-box">
+          <span class="search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+          <input id="doc-search" class="search-input" type="search" placeholder="Kural, yaptırım veya kavram ara... (Örn: ADK, RDM, Glitch, Notify, 15 dakika)" autocomplete="off" aria-label="Belge içinde ara">
+          <span id="search-status" class="search-status"></span>
+          <button id="search-clear" class="search-clear" type="button" hidden>Temizle</button>
+          <span class="search-kbd" aria-hidden="true">/</span>
+        </div>
+      </div>
+
+      <div id="search-empty" class="search-empty" hidden>
+        <p>Aramanızla eşleşen madde bulunamadı.</p>
+        <button id="reset-search-btn" class="reset-btn" type="button">Aramayı Sıfırla</button>
+      </div>
+
+      
+      <section class="doc-section" id="sozel" aria-labelledby="heading-sozel">
+        <div class="sec-head">
+          <span class="sec-eyebrow">VERBAL</span>
+          <h2 id="heading-sozel">1. Sözel İhlaller</h2>
+          <p class="sec-desc">Hakaret, ADK, saygısızlık, taciz, ayrımcı ifadeler, IRL tehditler ve Ticket Protokolü.</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Oyuncuya Yönelik Hakaret / ADK <span class='en-tag'>(Insult towards Player / ADK)</span></div>
+      <div class="rule-desc">Başka bir oyuncuya yönelik sözlü hakaret veya ailevi değerlere küfür (ADK). ADK ağırlığına göre ban süresi doğrudan 7 günden de başlatılabilir.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">ADK (Ailevi Küfür):</span><span class="sanction-text">Ağırlığına göre 7 günlük Yasaklama<span class="sanction-tag">(Ban)</span> ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Oyuncuya Yönelik Saygısızlık <span class='en-tag'>(Disrespect towards Player)</span></div>
+      <div class="rule-desc">Başka bir oyuncuya kişisel düzeyde sözlü saldırıda bulunmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Taciz / Sürekli Kışkırtma <span class='en-tag'>(Harassment / Provocation)</span></div>
+      <div class="rule-desc">Durması yönündeki birçok uyarıya rağmen bir tarafa yöneltilen istenmeyen ilgi.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Ayrımcı İfadeler <span class='en-tag'>(Discrimination: Racism, Homophobia, etc.)</span></div>
+      <div class="rule-desc">Birini kimliği, ırkı, dini veya cinsel yönelimi nedeniyle aşağılamak ya da hedef almak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Minimum:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Ağır durum / tekrar:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Ciddi Tehditler / Gerçek Hayata Yönelik Tehditler <span class='en-tag'>(IRL Threats)</span></div>
+      <div class="rule-desc">Gerçek hayatta birine yönelik ciddi zarar, şiddet veya tehlike tehditleri.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="protocol-box">
+    <div class="protocol-header">STAFF CEZA İŞLEM VE TİCKET PROTOKOLÜ <span class="protocol-en">(STAFF APPLICATION PROTOCOL)</span></div>
+    <div class="protocol-list">
+      <div class="protocol-item">
+        <span class="bullet">•</span>
+        <span class="protocol-label">Çevrimdışı Oyuncu Kuralı:</span>
+        <span class="protocol-text">İşlem anında oyuncu oyunda değilse, Kick cezası yerine doğrudan <strong>Uyarı (Warn)</strong> uygulanır.</span>
+      </div>
+      <div class="protocol-item">
+        <span class="bullet">•</span>
+        <span class="protocol-label">Discord Ticket Zorunluluğu:</span>
+        <span class="protocol-text">Discord Destek Talepleri (Ticket) üzerinden bildirilen cezalarda, personelin Warn veya Ban uygularken ceza açıklamasına mutlaka <strong>"Discord Ticket"</strong> yazması zorunludur.</span>
+      </div>
+      <div class="protocol-item">
+        <span class="bullet">•</span>
+        <span class="protocol-label">Ticket Yanıtsızlık & Devralma (15 Dakika):</span>
+        <span class="protocol-text">Bir yetkili açılan destek talebini (Ticket) üstlendikten sonra <strong>15 dakika boyunca</strong> ilgilenmez veya aktif yanıt vermezse, başka bir yetkili personelin talebi devralma hakkı doğar.</span>
+      </div>
+      <div class="protocol-item">
+        <span class="bullet">•</span>
+        <span class="protocol-label">Yetkili İnisiyatifi & Kayıt:</span>
+        <span class="protocol-text">Yetkili personeller kural ihlalinin ağırlığına ve oyuncunun geçmiş ceza siciline bağlı olarak cezayı artırma yetkisine sahiptir. Verilen tüm cezalarda geçerli ekran kaydı kanıtının saklanması mecburidir.</span>
+      </div>
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="rol-yapma" aria-labelledby="heading-rol-yapma">
+        <div class="sec-head">
+          <span class="sec-eyebrow">ROLEPLAY</span>
+          <h2 id="heading-rol-yapma">2. Rol Yapma &amp; Çatışma İhlalleri</h2>
+          <p class="sec-desc">FRP, MetaGaming, PowerGaming, FearRP, Random Punch, RDM, Glitch, Combat Log ve Baiting.</p>
+        </div>
+        <div class="sec-body">
+          <div class="sub-section-label">Bölüm A — Karakter & Temel Rol İhlalleri</div><div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kasıtsız Hatalı Rol Yapma <span class='en-tag'>(FailRP: NoFear, NoPain, Minor)</span></div>
+      <div class="rule-desc">(NoPain), ufak hatalar) Ufak çaplı Rol Yapma (RP) hataları, yetersiz bilgi veya temel kurallara uyulmaması.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kasıtlı Hatalı Rol Yapma / Trol Rol Yapma <span class='en-tag'>(FailRP / Troll RP)</span></div>
+      <div class="rule-desc">Sırf başkalarının deneyimini bozmak veya mahvetmek amacıyla kuralları kasıtlı olarak ihlal etmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">7 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Gereksiz Yere Birini İşten Atmak <span class='en-tag'>(Unjust Dismissal / Firing)</span></div>
+      <div class="rule-desc">Bir oyuncuyu geçerli bir rol sebebi veya haklı bir gerekçe olmaksızın işten/görevden atmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Ağır Uyarı<span class="sanction-tag">(Warn)</span> + gerekiyorsa işin/rolün iadesi</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span> + görevden geçici uzaklaştırma</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarlanan kötüye kullanım (abuse):</span><span class="sanction-text">Görevden kalıcı alınma + 7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Sebepsiz Eylemler <span class='en-tag'>(Freekill / Freeshoot / Freearrest / Freecuff)</span></div>
+      <div class="rule-desc">vb.) Geçerli bir Rol Yapma (RP) nedeni olmaksızın bir oyuncuya karşı haksız eylemler.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Toplu Hatalı Rol Yapma / Büyük Ölçekli Zarar Verici Eylemler <span class='en-tag'>(Mass FRP)</span></div>
+      <div class="rule-desc">Toplu sebepsiz öldürme (freekill) veya şok tabancası kullanımı (free tase) gibi çoklu zararlı eylemler.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Ciddiyete göre 3 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="directive-box">
+    <div class="directive-header">ROL YAPMA VE KARAKTER ESASLARI <span class="directive-en">(ROLEPLAY INTEGRITY DIRECTIVE)</span></div>
+    <div class="directive-desc">
+      Karakterinizin canını hiçe sayan korkusuz davranışlar (NoFear), rol gereği yaralanma durumunda acıyı yansıtmama (NoPain) ve oyun kalitesini baltalayan ciddiyetsiz tavırlar kabul edilemez. Şüpheli ve tartışmalı durumlarda yetkili personelin yönlendirmesi dikkate alınarak rolün akışı bozulmadan sürdürülmelidir.
+    </div>
+  </div><div class="sub-section-label sub-gap">Bölüm B — Çatışma & Sahne İhlalleri</div><div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Rol Yapma Sahnesini Reddetme <span class='en-tag'>(Refusal of RP Scene)</span></div>
+      <div class="rule-desc">Geçerli bir neden olmaksızın, geçerli bir sahneye katılmayı veya sürdürmeyi reddetmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Çatışmadan Kaçma / Sahneden Kaçmak İçin Çıkma <span class='en-tag'>(Combat Logging)</span></div>
+      <div class="rule-desc">Aktif bir sahneden veya bunun sonuçlarından kaçınmak amacıyla bağlantıyı kesmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span><span class="note-tag">(oyun içi otomatik ceza dönüşte zaten uygulanır)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Sürekli Zıplama / Gerçek Dışı Hareketler <span class='en-tag'>(Bunny Hop Abuse)</span></div>
+      <div class="rule-desc">Haksız bir avantaj elde etmek veya deneyimi bozmak amacıyla gerçekçi olmayan hareketler kullanmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Aşırı Polis Kışkırtma <span class='en-tag'>(Cop Bait)</span></div>
+      <div class="rule-desc">Gereksiz veya gerçekçi olmayan sahneler yaratmak amacıyla polise kasıtlı olarak kışkırtıcı davranmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Hata Kullanımı / Oyun Hatası İstismarı <span class='en-tag'>(Usebug / Exploit Abuse)</span></div>
+      <div class="rule-desc">Haksız bir avantaj elde etmek için hataları veya amaçlanmamış oyun mekaniklerini kullanmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span>+ hatanın bildirilmesi zorunlu</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Toplu istismar / ağır durum:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Oyun Parası / Eşyaların Robux ile Satışı <span class='en-tag'>(Cross-Trading / Robux Trading)</span></div>
+      <div class="rule-desc">Oyun içi para, araç, mülk veya eşyaların Robux ya da gerçek para karşılığında satılması, takas edilmesi veya ticaretinin yapılması.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İkinci sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="directive-box">
+    <div class="directive-header">ÇATIŞMA VE SAHNE BÜTÜNLÜĞÜ PROTOKOLÜ <span class="directive-en">(COMBAT & SCENE INTEGRITY)</span></div>
+    <div class="directive-desc">
+      Aktif bir çatışma, tutuklama veya rol sahnesi devam ederken cezadan veya kayıptan kurtulmak amacıyla oyundan çıkış yapmak (Combat Logging) ağır yaptırıma tabidir. Oyun çökmesi veya bağlantı kopması durumunda oyuncunun <strong>en geç 5 dakika içinde</strong> yetkili ekibine durumu bildirmesi ve sahneye dönmesi şarttır.
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="yetkili-iliskileri" aria-labelledby="heading-yetkili-iliskileri">
+        <div class="sec-head">
+          <span class="sec-eyebrow">INTERSTAFF</span>
+          <h2 id="heading-yetkili-iliskileri">3. Yetkili İlişkileri (Interstaff)</h2>
+          <p class="sec-desc">Troll, yalan bilgi, staff saygısızlığı, görev ihlali ve haksız ceza yaptırımları.</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yetkiliye Hakaret <span class='en-tag'>(Insult towards Staff)</span></div>
+      <div class="rule-desc">Bir personele doğrudan hakaret etmek veya sözlü saldırıda bulunmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yetkiliye Saygısızlık <span class='en-tag'>(Disrespect towards Staff)</span></div>
+      <div class="rule-desc">Bir personele karşı saygısız veya uygunsuz davranış sergilemek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yetkili Görüşmesi Sırasında Ayrılma <span class='en-tag'>(Leaving Interstaff)</span></div>
+      <div class="rule-desc">Geçerli bir neden veya izin olmaksızın, bir personel ile gerçekleştirilen kurum içi görüşmeden ayrılmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yetkiliye Yalan Söyleme <span class='en-tag'>(Lying to Staff)</span></div>
+      <div class="rule-desc">Yanlış veya yanıltıcı bilgi vermek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Sahte rapor / Asılsız suçlama:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yetkili ile İş Birliğini Reddetme <span class='en-tag'>(Refusal to Cooperate)</span></div>
+      <div class="rule-desc">Makul talimatlara uymayı veya iş birliği yapmayı reddetmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Gereksiz Destek Talebi <span class='en-tag'>(Troll Ticket)</span></div>
+      <div class="rule-desc">Geçerli bir amacı olmadan veya sadece trol yapmak için talep açmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kendini Yetkili Olarak Gösterme <span class='en-tag'>(Staff Impersonation)</span></div>
+      <div class="rule-desc">Yetkili kadrosunda olmadığı halde kendini yetkili (staff) gibi tanıtmak, taklit etmek veya oyunculara yetki taslamak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Abartı değilse:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Abartı ise:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Permaban)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="directive-box">
+    <div class="directive-header">INTERSTAFF VE İŞ BİRLİĞİ PROTOKOLÜ <span class="directive-en">(STAFF COOPERATION DIRECTIVE)</span></div>
+    <div class="directive-desc">
+      Yetkili görüşmelerine (Interstaff) çekilen oyuncuların sakin, saygılı ve dürüst bir tutum sergilemesi zorunludur. Yanıltıcı beyanlar, sahte raporlar veya görüşmeyi izinsiz terk etme eylemleri asıl ihlalin cezasına ek yaptırım getirilmesine neden olur.
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="ses" aria-labelledby="heading-ses">
+        <div class="sec-head">
+          <span class="sec-eyebrow">SES / MIC</span>
+          <h2 id="heading-ses">4. Ses &amp; Mikrofon İhlalleri</h2>
+          <p class="sec-desc">Mikrofon kirliliği, ses değiştirici, soundboard ve RP dışı yüksek ses kullanımı.</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Ses Panosu Kullanımı <span class='en-tag'>(Soundboard Abuse)</span></div>
+      <div class="rule-desc">Deneyimi bozan sesler veya müzikler çalmak; düşük ses seviyesine izin verilir.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kulak Tırmalayan Ses / Kasıtlı Agresif Sesler <span class='en-tag'>(Earrape / Loud Audio)</span></div>
+      <div class="rule-desc">Başkalarının deneyimini bozmak amacıyla aşırı yüksek veya rahatsız edici sesler çalmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Anında Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Aşırı Ses Değiştirici Kullanımı <span class='en-tag'>(Voice Changer Abuse)</span></div>
+      <div class="rule-desc">Rahatsız edici bir ses değiştirici kullanarak başkalarının deneyimini ciddi şekilde bozmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Mikrofon Spamı / Bağırma / Gürültü Kirliliği <span class='en-tag'>(Mic Spam / Shouting)</span></div>
+      <div class="rule-desc">Başkalarını rahatsız etmek amacıyla mikrofonu sürekli kullanmak veya bağırmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="flort-rp" aria-labelledby="heading-flort-rp">
+        <div class="sec-head">
+          <span class="sec-eyebrow">FRP / ERP</span>
+          <h2 id="heading-flort-rp">5. Flört RP ve +18 İçerik</h2>
+          <p class="sec-desc">Yüzeysel flört sınırı, izinsiz flört, e-dating, ERP/cinsel RP ve pedofili yasağı.</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Tip A — Hafif Flört / İmalı Davranış <span class='en-tag'>(Type A: Suggestive Behavior)</span></div>
+      <div class="rule-desc">Hafif flörtleşme veya ortam için uygunsuz sayılabilecek her türlü imalı davranış.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Tip B — Cinsel Söylemler / Uygunsuz Mesajlar <span class='en-tag'>(Type B: Explicit Messages)</span></div>
+      <div class="rule-desc">Oyun içinde bir oyuncuya yönelik uygunsuz cinsel içerikli ifadeler ve mesajlar.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Tip C — Cinsel Sesler / Açık Cinsel Rol Yapma <span class='en-tag'>(Type C: Explicit ERP)</span></div>
+      <div class="rule-desc">İnleme gibi cinsel sesler veya açık cinsel rol yapma.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Bir Oyuncuya Yönelik Cinsel Taciz <span class='en-tag'>(Sexual Harassment)</span></div>
+      <div class="rule-desc">İstenmeyen cinsel ilgi, yorumlar, yakınlaşma girişimleri veya davranışlar.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Ciddiyete göre 7 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="zararli" aria-labelledby="heading-zararli">
+        <div class="sec-head">
+          <span class="sec-eyebrow">HARMFUL</span>
+          <h2 id="heading-zararli">6. Zararlı ve Güvenlik İhlalleri</h2>
+          <p class="sec-desc">Hile, açık sömürü (Bug Abuse), dolandırıcılık, Robux ticareti ve dış bağlantı (OOC links).</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Cezadan Kaçmak İçin İkinci Hesap <span class='en-tag'>(Alt Account / Ban Evading)</span></div>
+      <div class="rule-desc">Aleyhinize uygulanan bir Yaptırımı (Sanction) atlatmak veya etrafından dolaşmak için yan hesap kullanmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span>+ olası Kara Liste<span class="sanction-tag">(Blacklist)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">İzinsiz Reklam <span class='en-tag'>(Unauthorized Advertising)</span></div>
+      <div class="rule-desc">Gerekli izin olmaksızın içerik, sunucu, grup veya hizmetlerin reklamını yapmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span>+ içeriğin kaldırılması</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar / toplu:</span><span class="sanction-text">7 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Dolandırıcılık / Dolandırıcılık Girişimi <span class='en-tag'>(Scam / Real Money Fraud)</span></div>
+      <div class="rule-desc">Değerli eşyalar elde etmek amacıyla başkalarını kandırmaya çalışmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">3000$ Üzeri Oyun İçi Dolandırıcılık <span class='en-tag'>(High-Value Trade Scam)</span></div>
+      <div class="rule-desc">Başka bir oyuncuyu 3.000$ üzerinde takas değeri olan bir işlemde dolandırmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span>+ mağdurun zararının karşılanması</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Zararlı Yanlış Bilgi Yayma <span class='en-tag'>(Spreading Misinformation)</span></div>
+      <div class="rule-desc">Zarara, paniğe veya ciddi kafa karışıklığına yol açabilecek yanlış bilgileri kasıtlı yaymak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Ağır Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Ağır durum:</span><span class="sanction-text">7 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Projeye Karşı Zararlı Eleştiri / Sürekli Saldırı <span class='en-tag'>(Hate Campaign against Project)</span></div>
+      <div class="rule-desc">Projeye zarar verici veya yıkıcı bir biçimde tekrar tekrar saldırmak ya da eleştirmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Ağır Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">3 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Ağır durum:</span><span class="sanction-text">7 günlük ila Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Açık Kullanımı / Betik / Hile <span class='en-tag'>(Exploit / Script / Cheat)</span></div>
+      <div class="rule-desc">Haksız bir kişisel avantaj elde etmek amacıyla üçüncü taraf aracı kullanmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span>+ Kara Liste<span class="sanction-tag">(Blacklist)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Yasaklı İçerik / Uygunsuz İçerik Paylaşımı <span class='en-tag'>(NSFW Content)</span></div>
+      <div class="rule-desc">Yasak veya iş ortamında uygun olmayan içerik paylaşmak veya dağıtmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kişisel Bilgi İfşası Girişimi / Bilgilerin Sızdırılması <span class='en-tag'>(Doxx Attempt / Data Leak)</span></div>
+      <div class="rule-desc">Birinin özel veya kişisel bilgilerini ifşa etmeye veya ele geçirmeye çalışmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span>+ Kara Liste<span class="sanction-tag">(Blacklist)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="harmful-box">
+    <div class="harmful-header">ZARARLI EYLEMLER VE HİLE PROTOKOLÜ <span class="harmful-en">(ZERO TOLERANCE POLICY)</span></div>
+    <div class="harmful-desc">
+      Hile, exploit, üçüncü taraf yazılım, doxxing veya gerçek para/Robux dolandırıcılığı içeren eylemlerde kademeli ceza sistemi uygulanmaz; ilk seferde doğrudan <strong>Kalıcı Yasaklama (Ban)</strong> ve <strong>Kara Liste (Blacklist)</strong> uygulanır. Oyun içi dolandırıcılık vakalarında mağdur oyuncunun zararı tazmin edilmeden hiçbir yasaklama kaldırılmaz.
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="diger-yaptirimlar" aria-labelledby="heading-diger-yaptirimlar">
+        <div class="sec-head">
+          <span class="sec-eyebrow">DİĞER</span>
+          <h2 id="heading-diger-yaptirimlar">7. Diğer Yaptırımlar ve Yürürlük</h2>
+          <p class="sec-desc">Trol kullanıcı adı, gereksiz işten atma, yetki kötüye kullanımı, özel not ve yürürlük esasları.</p>
+        </div>
+        <div class="sec-body">
+          <div class="cards-container">
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Aşırı Klavye Başında Olmadan Kasılma <span class='en-tag'>(AFK Farm)</span></div>
+      <div class="rule-desc">Oyun içi avantajları elde etmek amacıyla oyun içinde klavye başında olmadan kalmak.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Bildirim<span class="sanction-tag">(Notify)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı durum:</span><span class="sanction-text">İlgili ilerlemenin sıfırlanması <span class="note-tag">(reset)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Kasıtlı Anti-Oyun Davranışı <span class='en-tag'>(Anti-Game / Griefing)</span></div>
+      <div class="rule-desc">Oyun akışını kasıtlı olarak bozmak veya diğer oyuncuların deneyimini mahvetmek.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Uyarı<span class="sanction-tag">(Warn)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Tekrarı:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı tekrar:</span><span class="sanction-text">7 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Rol Yapma Dışı / Trol Kullanıcı Adı <span class='en-tag'>(Non-RP / Troll Username)</span></div>
+      <div class="rule-desc">Uygunsuz, gerçekçi olmayan veya süreci sekteye uğratmaya yönelik kullanıcı adı.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Bildirim (Notify):</span><span class="sanction-text">+ zorunlu değişiklik</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Reddetme:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Döndükten sonra reddetme:</span><span class="sanction-text">12 saatlik Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Trol Kaplama / Şok Edici İçerik <span class='en-tag'>(Troll Skin / Offensive Outfit)</span></div>
+      <div class="rule-desc">Oyuncuyu rahatsız edici veya kışkırtıcı kaplama/içerikler.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Bildirim (Notify):</span><span class="sanction-text">+ zorunlu kaldırma</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Reddetme:</span><span class="sanction-text">Sunucudan Atma<span class="sanction-tag">(Kick)</span></span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Döndükten sonra reddetme:</span><span class="sanction-text">1 günlük Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+    <div class="rule-card staff-card">
+      <div class="rule-title">Cezadan Kaçma <span class='en-tag'>(Evading Sanction)</span></div>
+      <div class="rule-desc">Geçerli bir neden olmaksızın personel değişimi sırasında ayrılan oyuncular için geçerlidir.</div>
+      <div class="sanction-list"><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">İlk sefer:</span><span class="sanction-text">Başlangıç cezasının iki katı</span></div><div class="sanction-item"><span class="bullet">•</span><span class="sanction-label">Aşırı durum:</span><span class="sanction-text">Kalıcı Yasaklama<span class="sanction-tag">(Ban)</span></span></div></div>
+    </div>
+    
+  </div>
+  <div class="notice-card">
+    <div class="notice-title">YÖNETİM, DİSİPLİN VE İTİRAZ ESASLARI <span class="notice-en">(GENERAL DISCIPLINARY & APPEALS)</span></div>
+    <div class="notice-desc">
+      Bu belgedeki yaptırımlar tüm oyuncular ve yetkili kadrosu için bağlayıcıdır. Kuralları bilmemek mazeret kabul edilmez. Haksız uygulandığı düşünülen yaptırımlar için oyuncular Discord destek kanalları üzerinden <strong>Ceza İtiraz Talebi</strong> açabilir; inceleme yalnızca video/ses kanıtları doğrultusunda Üst Yönetim tarafından sonuçlandırılır.
+    </div>
+  </div>
+  <div class="directive-box">
+    <div class="directive-header">YÜRÜRLÜK VE UYGULAMA ESASLARI <span class="directive-en">(ENFORCEMENT & VALIDITY)</span></div>
+    <div class="directive-desc">
+      İşbu Ceza ve Yaptırım Yönetmeliği, Prison RP Türkiye Üst Yönetimi tarafından onaylanarak yürürlüğe girmiştir. Yönetim, sunucu düzenini ve rol kalitesini korumak amacıyla gerekli gördüğü durumlarda maddelerde güncelleme yapma hakkını saklı tutar.
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>Prison RP Türkiye — Yetkili Ceza ve Yaptırım Yönetmeliği</span>
+        <span>
+          <a href="./downloads/staff.pdf" download>Yetkili PDF İndir</a>
+        </span>
+      </footer>
+    </main>
+  </div>
+
+  <button id="scroll-top-btn" class="scroll-top-btn" type="button" aria-label="Yukarı çık">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script>
+
+(function () {
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('drawer-backdrop');
+  const openBtn = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('drawer-close');
+  let lastFocus = null;
+
+  function setDrawer(open) {
+    if (!sidebar || !backdrop) return;
+    sidebar.classList.toggle('is-open', open);
+    backdrop.classList.toggle('is-open', open);
+    document.body.classList.toggle('drawer-locked', open);
+    if (openBtn) openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      lastFocus = document.activeElement;
+      if (closeBtn) closeBtn.focus();
+    } else if (lastFocus && typeof lastFocus.focus === 'function') {
+      lastFocus.focus();
+      lastFocus = null;
+    }
+  }
+
+  if (openBtn) openBtn.addEventListener('click', () => setDrawer(true));
+  if (closeBtn) closeBtn.addEventListener('click', () => setDrawer(false));
+  if (backdrop) backdrop.addEventListener('click', () => setDrawer(false));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar && sidebar.classList.contains('is-open')) {
+      setDrawer(false);
+    }
+    if (e.key === '/' && document.activeElement && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) {
+      const searchEl = document.getElementById('doc-search');
+      if (searchEl) {
+        e.preventDefault();
+        searchEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        searchEl.focus({ preventScroll: true });
+      }
+    }
+  });
+
+  document.querySelectorAll('.toc-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 960) setDrawer(false);
+    });
+  });
+
+  // Scroll spy
+  const sections = Array.from(document.querySelectorAll('.doc-section'));
+  const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+  if (sections.length && tocLinks.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach((a) => {
+            const match = a.getAttribute('href') === '#' + id;
+            a.classList.toggle('is-active', match);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+    sections.forEach((sec) => observer.observe(sec));
+  }
+
+  // Turkish + ASCII-fold normalization for search
+  function normTr(str) {
+    return (str || '')
+      .toLocaleLowerCase('tr-TR')
+      .replace(/ç/g, 'c')
+      .replace(/ğ/g, 'g')
+      .replace(/ı/g, 'i')
+      .replace(/i̇/g, 'i')
+      .replace(/ö/g, 'o')
+      .replace(/ş/g, 's')
+      .replace(/ü/g, 'u')
+      .trim();
+  }
+
+  const searchInput = document.getElementById('doc-search');
+  const clearBtn = document.getElementById('search-clear');
+  const statusEl = document.getElementById('search-status');
+  const emptyEl = document.getElementById('search-empty');
+  const resetEmptyBtn = document.getElementById('reset-search-btn');
+
+  // Tag searchable items dynamically
+  const searchableSelector = '.modern-card, .tool-card, .role-box, table tbody tr, .rule-card, .directive-box, .protocol-box, .harmful-box, .notice-card';
+  const items = Array.from(document.querySelectorAll(searchableSelector));
+  items.forEach((el) => {
+    el.dataset.searchText = normTr(el.textContent);
+  });
+
+  function applySearch() {
+    if (!searchInput) return;
+    const raw = searchInput.value;
+    const q = normTr(raw);
+    if (clearBtn) clearBtn.hidden = raw.length === 0;
+
+    let visibleCount = 0;
+    if (!q) {
+      items.forEach((el) => el.classList.remove('search-hidden'));
+      document.querySelectorAll('.doc-section, .table-wrap, .tools-grid, .roles-grid, .cards-container, .sub-section-label').forEach((w) => {
+        w.classList.remove('search-hidden');
+      });
+      if (statusEl) statusEl.textContent = '';
+      if (emptyEl) emptyEl.hidden = true;
+      return;
+    }
+
+    const tokens = q.split(/\s+/).filter(Boolean);
+    items.forEach((el) => {
+      const hay = el.dataset.searchText || '';
+      const hit = tokens.every((t) => hay.includes(t));
+      el.classList.toggle('search-hidden', !hit);
+      if (hit) visibleCount++;
+    });
+
+    // Hide empty table wraps, grids, sections
+    document.querySelectorAll('.table-wrap').forEach((tw) => {
+      const hasRow = tw.querySelector('tbody tr:not(.search-hidden)');
+      tw.classList.toggle('search-hidden', !hasRow);
+    });
+    document.querySelectorAll('.tools-grid, .roles-grid, .cards-container').forEach((g) => {
+      const hasChild = Array.from(g.children).some((c) => !c.classList.contains('search-hidden'));
+      g.classList.toggle('search-hidden', !hasChild);
+    });
+    document.querySelectorAll('.doc-section').forEach((sec) => {
+      const hasVisible = sec.querySelector(
+        '.modern-card:not(.search-hidden), .tool-card:not(.search-hidden), .role-box:not(.search-hidden), table tbody tr:not(.search-hidden), .rule-card:not(.search-hidden), .directive-box:not(.search-hidden), .protocol-box:not(.search-hidden), .harmful-box:not(.search-hidden), .notice-card:not(.search-hidden)'
+      );
+      sec.classList.toggle('search-hidden', !hasVisible);
+    });
+    document.querySelectorAll('.sub-section-label').forEach((lbl) => {
+      lbl.classList.add('search-hidden');
+    });
+
+    if (statusEl) {
+      statusEl.textContent = visibleCount > 0 ? visibleCount + ' kayıt eşleşti' : 'Sonuç yok';
+    }
+    if (emptyEl) emptyEl.hidden = visibleCount > 0;
+  }
+
+  if (searchInput) searchInput.addEventListener('input', applySearch);
+  if (clearBtn) clearBtn.addEventListener('click', () => { searchInput.value = ''; applySearch(); searchInput.focus(); });
+  if (resetEmptyBtn) resetEmptyBtn.addEventListener('click', () => { searchInput.value = ''; applySearch(); searchInput.focus(); });
+
+  // Wrap tables safely for progressive styling
+  document.querySelectorAll('table').forEach((tbl) => {
+    if (!tbl.parentElement.classList.contains('table-wrap')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'table-wrap';
+      tbl.parentNode.insertBefore(wrap, tbl);
+      wrap.appendChild(tbl);
+    }
+  });
+
+  // Back to top button
+  const topBtn = document.getElementById('scroll-top-btn');
+  if (topBtn) {
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('is-visible', window.scrollY > 380);
+    }, { passive: true });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+
+  </script>
+</body>
+</html>
