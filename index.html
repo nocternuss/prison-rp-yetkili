@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://nocternuss.github.io/prison-rp-yetkili/assets/banner-yetkili.png?v=1">
 
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-  <link rel="alternate icon" type="image/png" href="./assets/logo.png">
+  <link rel="alternate icon" type="image/png" href="./assets/logo.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -397,12 +397,19 @@
       min-width: 0;
     }
     .hero-logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
+      width: 72px;
+      height: 44px;
+      border-radius: 10px;
       object-fit: cover;
+      object-position: center 20%;
       border: 1px solid var(--border-strong);
       flex-shrink: 0;
+    }
+    @media (min-width: 640px) {
+      .hero-logo {
+        width: 92px;
+        height: 56px;
+      }
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -953,7 +960,7 @@
       <section class="doc-hero">
         <div class="hero-top">
           <div class="hero-brand">
-            <img src="./assets/logo.png" alt="Prison RP Türkiye Logosu" class="hero-logo" width="56" height="56">
+            <img src="./assets/logo.png?v=2" alt="Mustafa Kemal Atatürk" class="hero-logo" width="193" height="117">
             <div>
               <div class="hero-eyebrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="36" height="24" role="img" aria-label="Türk Bayrağı"><defs><clipPath id="tr-flag-clip-14-36"><rect x="0" y="0" width="300" height="200" rx="14" ry="14"/></clipPath></defs><g clip-path="url(#tr-flag-clip-14-36)"><rect width="300" height="200" fill="#E30A17"/><circle cx="100" cy="100" r="50" fill="#FFFFFF"/><circle cx="112.5" cy="100" r="40" fill="#E30A17"/><polygon points="143.30,100.00 160.57,105.61 160.57,123.78 171.25,109.08 188.53,114.69 177.85,100.00 188.53,85.31 171.25,90.92 160.57,76.22 160.57,94.39" fill="#FFFFFF"/></g></svg><span>YETKİLİ REHBERİ</span></div>
               <h1>Yetkili Ceza &amp; Yaptırım Yönetmeliği</h1>
